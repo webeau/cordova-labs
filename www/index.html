@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" ng-app="cordovalabs">
+<html xmlns:ng="http://angularjs.org" ng-app="CordovaLabs">
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -17,9 +17,7 @@
             }
         </style>
     </head>
-    <body>
-
-        
+    <body>        
 
         <!-- AMD LOADER & Cordova -->
         <script type="text/javascript" src="cordova.js"></script>        
@@ -30,8 +28,10 @@
                 paths: {
                     'angular': 'angular/angular.min',
                     'angular-mobile': 'angular/angular-mobile.min',
+                    'angular-resource': 'angular/angular-resource.min',
                     'controller': '/js/controllers',
-                    'app': '/js/app'
+                    'app': '/js/app',
+                    'module': '/js/modules'
                 },
                 shim: {
                     'angular': {
@@ -40,11 +40,12 @@
                     'angular-mobile': {
                         deps: ['angular']                                           
                     }                  
-                }                
-            });
+                },
+                deps: ['angular-mobile']                
+            });  
 
-            require(['angular-mobile','app'],function(mobile,app) {
-                console.log(app);
+            require(['angular','app'],function(angular,app) {
+                //pass
             });
         </script>       
 
