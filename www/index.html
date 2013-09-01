@@ -17,12 +17,18 @@
             }
         </style>
     </head>
-    <body>        
+    <body>    
+        
+        <cordovalabs view="HomeView" controller="HomeController" />    
 
         <!-- AMD LOADER & Cordova -->
         <script type="text/javascript" src="cordova.js"></script>        
         <script type="text/javascript" src="js/vendors/require.js"></script> 
         <script type="text/javascript">
+
+            /*
+            requirejs configuration
+             */
             require.config({
                 baseUrl: 'js/vendors',
                 paths: {
@@ -31,7 +37,9 @@
                     'angular-resource': 'angular/angular-resource.min',
                     'controller': '/js/controllers',
                     'app': '/js/app',
-                    'module': '/js/modules'
+                    'module': '/js/modules',
+                    'partial': '/partials',
+                    'plugin': 'require-plugins'
                 },
                 shim: {
                     'angular': {
@@ -39,14 +47,16 @@
                     },
                     'angular-mobile': {
                         deps: ['angular']                                           
+                    },
+                    'angular-resource': {
+                        deps: ['angular']
                     }                  
                 },
-                deps: ['angular-mobile']                
+                deps: ['angular-mobile','angular-resource']                
             });  
 
-            require(['angular','app'],function(angular,app) {
-                //pass
-            });
+            //load main app controller
+            require(['angular','app']);
         </script>       
 
     </body>

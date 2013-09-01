@@ -1,8 +1,8 @@
 'use strict';
 
-define(['angular','module/cordova-events'],function(angular,events) {
+define(['angular','module/CordovaEvents','module/CordovaLabsDirectives'],function(angular,events,dirs) {
 
-	var CordovaLabs = angular.module('CordovaLabs',['CordovaEvents']);	
+	var CordovaLabs = angular.module('CordovaLabs',['CordovaEvents','CordovaLabsDirectives']);			
 	return CordovaLabs;	
 
 });

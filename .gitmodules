@@ -1,0 +1,3 @@
+[submodule "www/js/vendors/require-plugins/text"]
+	path = www/js/vendors/require-plugins/text
+	url = https://github.com/requirejs/text.git
