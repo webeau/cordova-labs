@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular','app'],function(angular,app) {	
+define(['angular','js/app'],function(angular,app) {	
 
 	var Home = {};
 
@@ -8,8 +8,8 @@ define(['angular','app'],function(angular,app) {
 	use extend
 	for safest way to extend application
 	 */
-	Home = angular.extend(Home,app);	
-
+	Home = angular.extend(Home,app);		
+	
 	/*
 	build controller to handle page
 	 */

@@ -11,15 +11,11 @@ define(['angular'],function(angular) {
 		return {
 			restrict: 'EAC',			
 			link: function(scope,element,attrs) {
-
-				/*
-				make sure to load controller first before view
-				if controller has been requested
-				 */
-				if(attrs.controller) {
-					require(['controller/'+attrs.controller]);
-				}
 				
+				if (attrs.controller != 'undefined') {
+					require(['controller/'+attrs.controller]);					
+				}
+
 				if (attrs.view) {
 
 					/*

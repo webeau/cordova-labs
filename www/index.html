@@ -29,17 +29,15 @@
             /*
             requirejs configuration
              */
-            require.config({
-                baseUrl: 'js/vendors',
+            require.config({                
                 paths: {
-                    'angular': 'angular/angular.min',
-                    'angular-mobile': 'angular/angular-mobile.min',
-                    'angular-resource': 'angular/angular-resource.min',
-                    'controller': '/js/controllers',
-                    'app': '/js/app',
-                    'module': '/js/modules',
-                    'partial': '/partials',
-                    'plugin': 'require-plugins'
+                    'angular': 'js/vendors/angular/angular.min',
+                    'angular-mobile': 'js/vendors/angular/angular-mobile.min',
+                    'angular-resource': 'js/vendors/angular/angular-resource.min',
+                    'controller': 'js/controllers',                    
+                    'module': 'js/modules',
+                    'partial': 'partials',
+                    'plugin': 'js/vendors/require-plugins'
                 },
                 shim: {
                     'angular': {
@@ -52,11 +50,12 @@
                         deps: ['angular']
                     }                  
                 },
-                deps: ['angular-mobile','angular-resource']                
+                deps: ['angular-mobile','angular-resource'],
+                waitSeconds: 0                
             });  
 
             //load main app controller
-            require(['angular','app']);
+            require(['angular','js/app']);
         </script>       
 
     </body>
