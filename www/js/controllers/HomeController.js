@@ -9,12 +9,13 @@ define(['angular','js/app'],function(angular,app) {
 	for safest way to extend application
 	 */
 	Home = angular.extend(Home,app);		
-	
-	
-	//build controller to handle page
-	 
+		
+	//build controller to handle page	 
 	Home.controller('HomeController',['$scope',function($scope) {
-		$scope.welcome = 'testing2';
+		$scope.brand = 'CordovaLabs';
+		$scope.titleClick = function($event) {
+			$event.preventDefault();			
+		};
 	}]);
 	
 	return Home;	

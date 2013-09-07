@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular'],function(angular) {
+define(['angular','jquery'],function(angular,$) {
 
 	var dir = angular.module('CordovaLabsDirectives',[]);
 
@@ -11,7 +11,7 @@ define(['angular'],function(angular) {
 		return {
 			restrict: 'EAC',	
 			transclude: true,
-			template: '<div id="placer" ng-transclude></div>',
+			template: '<div id="placer" ng-transclude><div id="replacer"></div></div>',
 			replace: true,		
 			link: function(scope,element,attrs) {
 				
@@ -19,7 +19,7 @@ define(['angular'],function(angular) {
 					require(['controller/'+attrs.controller]);					
 				}
 
-				if (attrs.view) {
+				if (attrs.view != 'undefined') {
 
 					/*
 					load partial view
@@ -36,19 +36,20 @@ define(['angular'],function(angular) {
 
 								/*
 								replace <cordovalabs /> with requested view
-								 */
-								element.prepend(html);													
+								 */																								
+							 	// element.replaceWith(html);
+							 	var orig = element.replaceWith(html);							 	
 
-								/*
+							 	/*
 								bootstrapping application into document
 								 */		
-								angular.bootstrap(document,['CordovaLabs']);								
+								angular.bootstrap(document,['CordovaLabs']);
 
-							});
+							});							
 
 					});
 
-				}
+				}				
 				
 			}
 		};

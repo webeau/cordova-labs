@@ -49,6 +49,7 @@
                         deps: ['angular']
                     },
                     'jquery': {
+                        exports: 'jQuery',
                         init: function() {
                             return jQuery.noConflict(true);
                         }
