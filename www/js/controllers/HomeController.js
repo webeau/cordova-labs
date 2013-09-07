@@ -10,13 +10,13 @@ define(['angular','js/app'],function(angular,app) {
 	 */
 	Home = angular.extend(Home,app);		
 	
-	/*
-	build controller to handle page
-	 */
+	
+	//build controller to handle page
+	 
 	Home.controller('HomeController',['$scope',function($scope) {
 		$scope.welcome = 'testing2';
 	}]);
 	
-	return Home;		
+	return Home;	
 
 });

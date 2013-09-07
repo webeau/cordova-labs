@@ -40,17 +40,22 @@
                 },
                 shim: {
                     'angular': {
-                        exports: 'angular'
-                    },
+                        exports: 'angular'                        
+                    },                    
                     'angular-mobile': {
                         deps: ['angular']                                           
                     },
                     'angular-resource': {
                         deps: ['angular']
                     },
+                    'jquery': {
+                        init: function() {
+                            return jQuery.noConflict(true);
+                        }
+                    },
                     'bootstrap': {
                         deps: ['jquery']
-                    }                  
+                    }                         
                 },
                 deps: ['angular-mobile','angular-resource','bootstrap'],
                 waitSeconds: 0                

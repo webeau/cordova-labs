@@ -9,7 +9,10 @@ define(['angular'],function(angular) {
 	 */
 	dir.directive('cordovalabs',function() {
 		return {
-			restrict: 'EAC',			
+			restrict: 'EAC',	
+			transclude: true,
+			template: '<div id="placer" ng-transclude></div>',
+			replace: true,		
 			link: function(scope,element,attrs) {
 				
 				if (attrs.controller != 'undefined') {
@@ -34,7 +37,7 @@ define(['angular'],function(angular) {
 								/*
 								replace <cordovalabs /> with requested view
 								 */
-								element.replaceWith(html);					
+								element.prepend(html);													
 
 								/*
 								bootstrapping application into document
